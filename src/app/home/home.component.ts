@@ -26,6 +26,5 @@ export class HomeComponent implements OnInit {
   // }
   cancelRegister(event:any) {
  console.log(event);
- 
   }
 }

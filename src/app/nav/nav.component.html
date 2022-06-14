@@ -26,11 +26,10 @@
             <a class="dropsown-item" href="#"><i class="fa fa-sign-out"></i>Logout</a>
         </div>
     </div>
-    <form *ngIf="!loggedIn()" class="d-flex" (ngsubmit)="login()" autocomplete="off">
-        <input class="form-control me-sm-2 " name="Username" autocomplete="off" type="text" required [(ngModel)]="model.Username" />
-        <input class="form-control me-sm-2" type="password" name="Password" required [(ngModel)]="model.Password" />
-        <button class="btn btn-success my-2 my-sm-0" type="submit">
-        Log In
-      </button>
+
+    <form *ngIf="!loggedIn()" class="d-flex align-items-center justify-content-end" autocomplete="off">
+        <input class="form-control me-2 text-align-right" name="Username" autocomplete="off" type="text" required [(ngModel)]="model.Username" />
+        <input class="form-control me-2 text-align-right" type="password" name="Password" required [(ngModel)]="model.Password" />
+        <button class="btn btn-success" (click)="login()">LogIn</button>
     </form>
 </nav>
