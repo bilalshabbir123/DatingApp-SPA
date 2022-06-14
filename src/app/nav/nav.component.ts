@@ -9,35 +9,32 @@ import { AuthService } from '../_services/auth.service';
 })
 export class NavComponent implements OnInit {
   model: any = {};
-  constructor(private authService:AuthService,private alertify: AlertifyService) { }
+  constructor(public authService:AuthService,private alertify: AlertifyService) { }
 
   ngOnInit(): void {
   }
-  // login() {
-  //   this.authService.login(this.model).subscribe(next=>{
-  //     console.log('Logged in successfully');
-  //   }, error => {
-  //     console.log('Failed to Login');
-  //   });
-  // }
   login() {    
     this.authService.login(this.model).subscribe({
       next : (res) => {
         this.alertify.success("Logged in successfully");
       },
-      error(err){
-        console.log(err);
+      error:(err)=>{
+       this.alertify.error(err);
       }
     });
   }
 
   loggedIn()
   {
-    const token=localStorage.getItem('token');
-    return !!token;
+    return this.authService.loggedIn();
   }
+  // loggedIn()
+  // {
+  // const token=localStorage.getItem('token');
+  // return !!token;
+  // }
   logout() {
     localStorage.removeItem('token');
-    console.log('logged out');
+   this.alertify.message('logged out');
   }
 }
