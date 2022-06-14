@@ -11,47 +11,22 @@
         <li class="nav-item">
             <a class="nav-link" href="#">Messages</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" (click)="logout()">Logout</a>
-        </li>
     </ul>
 
+
+
     <div *ngIf="loggedIn()" class="dropdown">
-        <a class="dropdown-toggle text-light">
-            Welcome User
-            <!-- Welcome {{authService.decodedToken?.unique_name | titlecase}} -->
-        </a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit Profile</a>
-            <!-- <div class="dropdown-divider"></div> -->
-            <a class="dropsown-item" href="#"><i class="fa fa-sign-out" (click)="logout()"></i>Logout</a>
-        </div>
-    </div>
-    <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           Dropdown button
+            <!-- Welcome {{authService.decodedToken?.unique_name | titlecase}} -->
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item">Something else here</a></li>
             <li class="dropdown-item">
                 <a class="nav-link" (click)="logout()">Logout</a>
             </li>
         </ul>
     </div>
-    <!-- Example single danger button -->
-
-    <!-- <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="book-dropdown" data-bs-toggle="dropdown">
-    Welcome User
-    </button>
-        <ul class="dropsdown-menu" aria-labelledby="book-dropdown">
-            <li>Hi</li>
-            <li>Bilal</li>
-        </ul>
-    </div> -->
-
     <form *ngIf="!loggedIn()" class="d-flex align-items-center justify-content-end" autocomplete="off">
         <input class="form-control me-2 text-align-right" name="Username" autocomplete="off" type="text" required [(ngModel)]="model.Username" />
         <input class="form-control me-2 text-align-right" type="password" name="Password" required [(ngModel)]="model.Password" />
