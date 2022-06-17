@@ -15,6 +15,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   login() {    
     this.authService.login(this.model).subscribe({
       next : (res) => {
